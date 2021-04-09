@@ -23,13 +23,9 @@ async function searchShows(query) {
   let response = await axios.get("http://api.tvmaze.com/search/shows", {params:{q: query}});
   console.log(response.data);
   let shows = response.data.map(function(val){
-    return{
-      id,
-      name,
-      summary,
-      image
-    }
+    return ({id, name, summary, image:{medium} = "http://tinyurl.com/missing-tv"} = val.show);
   })
+  return shows;
 }
 
 
