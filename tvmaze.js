@@ -106,14 +106,14 @@ function populateEpisodes(episodes){
   for (let episode of episodes){
     let $item = $(
       `<li>
-        S${episode.season}E${episode.number}
+        S${episode.season} E${episode.number}:
         ${episode.name}
        </li>`
     )
     $("#episodes-list").append($item);
   }
   $("#episodes-area").show();
-  $("#episodes-area").animate()
+  $.scrollTo($("#episodes-area"), 500);
 }
 
 $("#shows-list").on("click", ".get-episodes", async function(evt){
